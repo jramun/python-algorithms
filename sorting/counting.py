@@ -1,15 +1,16 @@
 def counting(values):
+    print(values)
     maximum = max(values)
-    result = [len(values)]
-    temp = [maximum + 1]
-    for e in temp:
-        e = 0
-    for e in values:
-        temp[e] += 1
-    for k in range(1, len(temp) - 1, 1):
+    result = [0] * len(values)
+    temp = [0] * (maximum + 1)
+    for j in range(0, len(values), 1):
+        temp[values[j]] = temp[values[j]] + 1
+    print(temp)
+    for k in range(1, len(temp), 1):
         temp[k] = temp[k] + temp[k - 1]
+    print(temp)
     for item in values:
-        result[temp[item]] = item
+        result[temp[item] - 1] = item
         temp[item] -= 1
     print(result)
 
